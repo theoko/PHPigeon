@@ -1,6 +1,6 @@
-# Users
+# PHPigeon
 
-Users is a mass-mail web app built with laravel 5.2
+PHPigeon is a mass-mail web app built with laravel 5.2
 
 # How to use it
 
