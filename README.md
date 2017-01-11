@@ -6,17 +6,11 @@ PHPigeon is a mass-mail web app built with laravel 5.2
 
 1) Create database "users"
 
-2) Change database credentials in the ".env" file
+2) Change credentials in the ".env" file
 
 3) Run "php artisan migrate"
 
-4) Create tables: "emails", "send"
-
-# Table "emails" structure
-
-id	int(11)	AUTO_INCREMENT
-
-email	varchar(255) utf8_unicode_ci
+4) Create tables: "send"
 
 # Table "send" structure
 
