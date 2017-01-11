@@ -35,3 +35,7 @@ body TEXT utf8_unicode_ci
 You also need to change the database credentials in the "send.php" file & the e-mail credentials!
 
 Example: 0 */2 * * * user php {laravel_dir}/cron/send.php
+
+# TODO
+
+Set up laravel queues to queue emails
