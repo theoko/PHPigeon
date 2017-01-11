@@ -250,9 +250,14 @@ class HomeController extends Controller
     public function delete_email(Request $request, $id) {
       $check = DB::table('emails')->select('*')->where('id', '=', $id)->first();
       if($check) {
-        DB::table('emails')->where('id', '=', $id)->delete();
+        $delete = DB::table('emails')->where('id', '=', $id)->delete();
 
-        $request->session()->flash('alert-success', 'Email was deleted!');
+        if($delete) {
+          $request->session()->flash('alert-success', 'Email was deleted!');
+        } else {
+          $request->session()->flash('alert-success', 'There was an error!');
+        }
+
         return redirect()->route('home');
       } else {
         $request->session()->flash('alert-danger', 'Email does not exist in the database and therefore cannot be deleted!');
@@ -263,9 +268,13 @@ class HomeController extends Controller
     public function delete_pending(Request $request, $id) {
       $check = DB::table('send')->select('*')->where('id', '=', $id)->first();
       if($check) {
-        DB::table('send')->where('id', '=', $id)->delete();
+        $delete = DB::table('send')->where('id', '=', $id)->delete();
 
-        $request->session()->flash('alert-success', 'Email was deleted!');
+        if($delete) {
+          $request->session()->flash('alert-success', 'Email was deleted!');
+        } else {
+          $request->session()->flash('alert-success', 'There was an error!');
+        }
         return redirect()->route('status');
       } else {
         $request->session()->flash('alert-danger', 'Email does not exist in the database and therefore cannot be deleted!');

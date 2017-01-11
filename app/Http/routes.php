@@ -4,6 +4,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::auth();
+
 // ADD EMAIL FOR MASS-EMAIL
 
 Route::get('systemStatus', [
@@ -76,8 +78,6 @@ Route::get('deleteEmail/{id}', [
   'uses' => 'HomeController@delete_email',
   'middleware' => 'auth',
 ]);
-
-Route::auth();
 
 Route::get('/home', [
   'uses' => 'HomeController@index',
