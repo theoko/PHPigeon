@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Jobs\SendEmail;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Input;
@@ -62,6 +63,9 @@ class HomeController extends Controller
         DB::table('send')->insert(
           array('from' => $from, 'to' => $email->email, 'subject' => $subject,'body' => $body)
         );
+
+        $job = new SendEmail($email->email, $body);
+        $this->dispatch($job);
       }
 
       $request->session()->flash('alert-success', 'Email sent to '.$emails_count.' emails with subject: '.$subject.'!');
@@ -116,6 +120,9 @@ class HomeController extends Controller
             DB::table('send')->insert(
               array('from' => $from, 'to' => $email, 'subject' => $subject,'body' => $body)
             );
+
+            $job = new SendEmail($email, $body);
+            $this->dispatch($job);
           }
       } else {
         $email = DB::table('emails')->select('*')->where('email', '=', $to)->first();
@@ -126,6 +133,9 @@ class HomeController extends Controller
         DB::table('send')->insert(
           array('from' => $from, 'to' => $to, 'subject' => $subject, 'body' => $body)
         );
+
+        $job = new SendEmail($to, $body);
+        $this->dispatch($job);
       }
 
       $request->session()->flash('alert-success', 'Emails sent!');
@@ -215,6 +225,9 @@ class HomeController extends Controller
       DB::table('send')->insert(
         array('from' => $from, 'to' => $to, 'subject' => $subject, 'body' => $body)
       );
+
+      $job = new SendEmail($to, $body);
+      $this->dispatch($job);
 
       $request->session()->flash('alert-success', 'Email sent to: '.$to.' from '.$from.'. It will be delivered in the next 6 hours!');
       return redirect()->route('home');
