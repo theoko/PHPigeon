@@ -24,9 +24,9 @@
                     <div class="form-group">
                       <label for="select_from" class="col-md-5 control-label">From</label>
                       <select class="form-control" id="select_from" style="width:40%" name="from">
-                        <option>support@athensmapp.com</option>
-                        <option>info@athensmapp.com</option>
-                        <option>sales@athensmapp.com</option>
+                        <option>firstEmail@domain.tld</option>
+                        <option>secondEmail@domain.tld</option>
+                        <option>thirdEmail@domain.tld</option>
                       </select>
                     </div>
 

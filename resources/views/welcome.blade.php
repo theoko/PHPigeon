@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Users</div>
+                <div class="panel-heading">PHPigeon</div>
 
                 <div class="panel-body">
-                  MASS-MAIL web application
+                  PHPigeon. A mass-mail web application
                 </div>
             </div>
         </div>
