@@ -24,10 +24,7 @@
                     <div class="form-group">
                       <label for="select_from" class="col-md-5 control-label">From</label>
                       <select class="form-control" id="select_from" style="width:40%" name="from">
-                        <option>email@example</option>
-                        <option>email2@example</option>
-                        <option>email3@example</option>
-                        <option>email4@example</option>
+                        <option>{{ env('MAIL_USERNAME') }}</option>
                       </select>
                     </div>
 
